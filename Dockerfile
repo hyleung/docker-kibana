@@ -12,3 +12,5 @@ RUN mv kibana-4.0.0-beta3 kibana
 RUN rm kibana.tar.gz 
 
 VOLUME /var/www/kibana
+
+ADD files/kibana.yml /var/www/kibana/config/kibana.yml
