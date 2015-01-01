@@ -6,11 +6,13 @@ RUN apt-get -yqq install wget
 
 RUN mkdir -p /var/www
 WORKDIR /var/www
-RUN wget http://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-beta3.tar.gz -O kibana.tar.gz
+RUN wget http://download.elasticsearch.org/kibana/kibana/kibana-3.1.2.tar.gz -O kibana.tar.gz
 RUN tar -xzvf kibana.tar.gz
-RUN mv kibana-4.0.0-beta3 kibana
+RUN mv kibana-3.1.2 kibana
 RUN rm kibana.tar.gz 
 
 VOLUME /var/www/kibana
 
-ADD files/kibana.yml /var/www/kibana/config/kibana.yml
+ADD files/kibana.config.js /var/www/kibana/config.js
+ADD files/nginx.conf /etc/nginx/conf.d/default.conf
+RUN ls /etc/nginx/conf.d
