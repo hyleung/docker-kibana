@@ -15,4 +15,5 @@ VOLUME /var/www/kibana
 
 ADD files/kibana.config.js /var/www/kibana/config.js
 ADD files/nginx.conf /etc/nginx/conf.d/default.conf
-RUN ls /etc/nginx/conf.d
+
+EXPOSE 8888
